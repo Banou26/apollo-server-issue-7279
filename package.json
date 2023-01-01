@@ -1,0 +1,28 @@
+{
+  "name": "apollo-test",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm run build-dev\" \"npm run start-dev\"",
+    "build-dev": "nodemon -e ts --watch src --exec \"vite build\"",
+    "start-dev": "nodemon ./dist/apollo-test.js"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/cors": "^2.8.12",
+    "@types/node": "^18.11.9",
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20",
+    "rollup-plugin-node-externals": "^5.0.2",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.3"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.3.0",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "graphql": "^17.0.0-alpha.2"
+  },
+  "type": "module"
+}
