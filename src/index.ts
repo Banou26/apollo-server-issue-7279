@@ -75,3 +75,40 @@ app.use(
 
 await new Promise<void>((resolve) => httpServer.listen({ port: 4000 }, resolve))
 console.log(`🚀 Server ready at http://localhost:4000/graphql`)
+
+
+// works while using `graphql@^16.0.0-experimental-stream-defer.5`
+// const req = `
+// query GetBooks {
+//   books {
+//     title
+//     author
+//     ... @defer {
+//       test {
+//         foo
+//       }
+//     }
+//   }
+// }
+
+// `
+
+// const requestObject = {
+//   "query": req,
+//   "variables": {},
+//   "operationName": "GetBooks",
+//   "http": {
+//       "body": {
+//           "operationName": "GetBooks",
+//           "variables": {},
+//           "query": req
+//       },
+//       "headers": {},
+//       "method": "POST",
+//       "search": ""
+//   }
+// }
+
+// const deferRes = await server.executeOperation(requestObject)
+
+// console.log('deferRes', deferRes.body.singleResult)
